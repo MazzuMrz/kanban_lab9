@@ -131,7 +131,6 @@ function UncontrolledBoard({
           >
             {card}
           </DefaultCard>
-          
         )
       }}
       allowRemoveColumn={allowRemoveColumn}
@@ -234,7 +233,7 @@ function BoardContainer({
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <h1>Lab9 Kanban</h1>
-      <ColumnAdder/>
+
       <div style={{ overflowY: 'hidden', display: 'flex', alignItems: 'flex-start' }} className='react-kanban-board'>
         <DroppableBoard droppableId='board-droppable' direction='horizontal' type='BOARD'>
           {board.columns.map((column, index) => (
@@ -252,6 +251,7 @@ function BoardContainer({
                     allowRenameColumn={allowRenameColumn}
                     onColumnRename={onColumnRename}
                   >
+                    
                     {column}
                   </DefaultColumnHeader>
                 )
@@ -262,16 +262,17 @@ function BoardContainer({
               allowAddCard={allowAddCard}
             >
               {column}
+              
+            
             </Column>
+            
           ))}
+          
         </DroppableBoard>
-        {renderColumnAdder()}
+        
+        <ColumnAdder />
+        
       </div>
-      <div>
-        <input style={{marginRight : 1}}/>
-        <button>Agregar</button>
-      </div>
-      
     </DragDropContext>
   )
 }
